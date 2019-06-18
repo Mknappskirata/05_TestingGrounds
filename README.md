@@ -1,6 +1,6 @@
 # S05_TestingGrounds
 
-Developed with Unreal Engine 4
+Developed with Unreal Engine 4 and Ben Tristem Unreal and C++ Udemy Course
 
 ## Author: Matthew Knapp
 
