@@ -5,16 +5,14 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AIController.h"
 #include "PatrolRoute.h"
-#include "PatrollingGuard.h"
 
 EBTNodeResult::Type UChooseNextWaypoint::ExecuteTask(UBehaviorTreeComponent & OwnerComp, uint8 * NodeMemory)
 {
 	//TODO Protect against no patrol route component and empty patrol routes
 	auto PatrolRoute = OwnerComp.GetAIOwner()->GetPawn()->FindComponentByClass<UPatrolRoute>();
 	if (!ensure(PatrolRoute)) { return EBTNodeResult::Failed; }
-
+	//ffdsf
 	//Get patrol points array
-	auto PatrollingGuard = Cast<APatrollingGuard>(OwnerComp.GetAIOwner()->GetPawn());
 	auto PatrolPoints = PatrolRoute->GetPatrolPoints();
 
 	if (PatrolPoints.Num() == 0)
