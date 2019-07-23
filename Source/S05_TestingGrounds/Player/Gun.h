@@ -19,24 +19,6 @@ class S05_TESTINGGROUNDS_API AGun : public AActor
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 		class USceneComponent* FP_MuzzleLocation;
 
-	/** Motion controller (right hand) */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class UMotionControllerComponent* R_MotionController;
-
-	/** Motion controller (left hand) */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-		class UMotionControllerComponent* L_MotionController;
-
-	/** Gun mesh: VR view (attached to the VR controller directly, no arm, just the actual gun) */
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-		class USkeletalMeshComponent* VR_Gun;
-
-	/** Location on VR gun mesh where projectiles should spawn. */
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-		class USceneComponent* VR_MuzzleLocation;
-
-
-
 public:	
 	// Sets default values for this actor's properties
 	AGun();
@@ -63,13 +45,15 @@ public:
 	/** Animation Instance of the character */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 		class UAnimInstance* AnimInstance;
+	
+	void OnFire();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	/** Fires a projectile. */
-	void OnFire();
+	
 
 
 
